@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>The Response Data</h3>
+  <p>After we successfully make our call we get a response from the API. Here is part of the response of the call we just set up to get all games owned by a user.
+  <script async src="//jsfiddle.net/mattfry1296/4wcfpocr/1/embed/js/dark/"></script></p>
+  <p>This data is in JSON format. As it is, this isn’t very useful for us and can be overwhelming and hard to read. Now we need to break it up so we can pull just the
+  data we want from it. To do this we are going to add a line to our request’s callback function.
+<script async src="//jsfiddle.net/mattfry1296/p91a5eLy/7/embed/js/dark/"></script>
+  This new line of code will store the response as a Javascript object that we can manipulate normally.</p>
+<p>  As a quick example of what we can do from here, let’s print out a list of the game titles. Here's the code:
+<script async src="//jsfiddle.net/mattfry1296/m2x0b0an/1/embed/js/dark/"></script></p>
+<p>Here we set the content variable to be the parsed JSON data as before. Then we set the variable "allGames" to be the array of games from the response.
+By looking at our first response data, we see the everything is contained in a "response" object. The "response" object contains an integer count of the games and
+an array of all the games "games". To get to this games array we add keys to the end of our content object and use "content["response"]["games"]".</p>
+<p>After getting the array of games, we use a foreach function. This function takes each item in the array and logs the name value of that object.</p>
+<p>After running our app again here is the result:</p>
+<div class="text-center"><img src="images/all-games-example.png" width="40%"></div>
+<p>We have successfully listed all of the games owned by this user. </p>
+  <div class="text-center"><br>
+   <a href="/full-example"><button type="button" class="btn btn-default">Next : Full Example</button></a>
+  </div>
+
+</div>

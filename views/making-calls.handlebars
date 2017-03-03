@@ -1,0 +1,38 @@
+<div class="container">
+  <h3>Formatting a Call to the Steam API</h3>
+  	<p>An API is called by making a request to a specific URL. The parameters in the URL can be changed to change what data we are getting.</p>
+  	<p>In this example, we are going to make a call to get all the games owned by a user. By looking at the Steam API’s documentation we see that the base URL to
+      do this is: <a href="">http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/</a></p>
+  <p>But just using this URL won’t do anything. We need to add parameters to the end of it to specify what we want.</p>
+  <p>We’ll start with the “KEY” parameter. This is just the API key you obtained in a previous step. Add that to the URL like so:
+  <a href="">http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=64DE3H4KS4478FEKE7DF13D6C713F0PP</a></p>
+  <p>The “?” just starts the parameters and needs to be placed before your first one. Adding subsequent parameters is done with a “&”. <br>For example,
+    <a href="">http://www.domain.com/?param1=value&amp;param2=value</a></p><br>
+  <h4>Other Parameters</h4>
+  <p>Now we need to add a few more parameters to get our data.
+<ul>
+  <li class="text-info">format=json</li>
+  This tells the API that we want JSON data to be returned to us<br><br>
+  <li class="text-info">include_appinfo=1</li>
+  Setting this to 1 makes the call return more information about each game most importantly the title of each game. Without this, we only see the APPID of each game.<br><br>
+  <li class="text-info">steamid=76561198044919787</li>
+  This tells the API which user we want to look up. Unfortunately, this is the only way to specify a user. We cannot find by user name and have to use this harder
+  to understand id number. There are 3rd party websites to help you find a user’s id such as <a href="https://steamid.io/">https://steamid.io/</a>. Another easy way to find it is to go to their profile in the steam application.<br><br>
+  <li class="text-info">include_played_free_games=1</li>
+  Setting this to 1 makes the response include the free games the user has downloaded. By default Steam considers free games as owned by everyone and excludes them from the search
+</ul></p>
+  <p>With all of these parameters, here is our final URL:<br>
+  <a href="">http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=64DE3H4KS4478FEKE7DF13D6C713F0PP&&steamid=76561198044919787&format=json&include_appinfo=1&include_played_free_games=1</a>
+</p><p>Plugging this in to the URL spot of our request code will get us the data we want back. But it is cleaner and useful to keep it broken up by storing the values
+  of certain parameters in variables. This makes it easier to change then later.</p>
+  <p>So we could store our URL like this:
+<script async src="//jsfiddle.net/mattfry1296/47aLp0m1/embed/js/dark/"></script></p>
+  <p>And when we need to use it, put it in the request like this:
+    <script async src="//jsfiddle.net/mattfry1296/5297r98b/1/embed/js/dark/"></script>
+  </p>
+<p>With the above code our app is ready to call the API. From the command line enter "node index.js" to run it. </p>
+  <div class="text-center"><br>
+   <a href="/response"><button type="button" class="btn btn-default">Next : The Response</button></a>
+  </div>
+
+</div>

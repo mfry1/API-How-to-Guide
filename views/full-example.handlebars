@@ -1,0 +1,22 @@
+<div class="container">
+<h3>Full Example</h3>
+<p>Here we’ll go through an example that makes several calls and does something with the data we receive. We’ll take two users’ IDs and a game ID. We’ll make
+  calls for each user and count how many achievements they have earned for that game. Finally, we’ll print out which user has more achievements. </p>
+<p>We start with this code that sets our 3 IDs and calls a function "countAchievements".
+<script async src="//jsfiddle.net/mattfry1296/msnzn9vg/embed/js/dark/"></script></p>
+
+<p>The bulk of the work is done in this function which handles the API calls.
+<script async src="//jsfiddle.net/mattfry1296/9hxcmsxp/embed/js/dark/"></script></p>
+<p>The function takes the ids of our users and the id of the game. It makes a call to the GetPlayerAchievements API. After doing this with the first
+user, a second call nested in the first is done. Finally, a function call is made in that request to a function to compare the data and print the results. </p>
+<p>In each of the requests, all of the achievements for the game are placed in an array. Then we loop through all of them and if the "achieved" value is set to
+1, meaning the user has gotten the achievement, we update the count. </p>
+<p>The last request function calls this compare function to display everything.
+<script async src="//jsfiddle.net/mattfry1296/utg2fud9/embed/js/dark/"></script></p>
+<p>And now our code is ready to run. Here is the results from running it twice, first with the game "Team Fortress 2" and then with "Portal".
+<div class="text-center">
+  <img src="images/full-example-results.png" width="75%">
+</div></p>
+
+
+</div>

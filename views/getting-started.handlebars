@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>How to Get a Key</h3>
+  <p>Most APIs require the user to get a unique key before using them. This lets the owner of the API prevent abuse and allows them to control how much a user is
+    using it.</p>
+  <p>So our first step is to get a key. First make sure you have a steam account. If you don’t, you can get one Steam’s website. To get a key, you need to go to
+    <a href="http://steamcommunity.com/dev/apikey">http://steamcommunity.com/dev/apikey</a>. Your key will be a long string of random characters. You should keep this private so others can’t steal it.</p>
+  <h3>Cross Origin Resource Sharing (CORS)</h3>
+  <p>Some API’s allow the call to them to be made from the browser. This can be more convenient and is simpler to understand. In Steam’s case, and with a lot of other
+     APIs, this is not allowed. If you attempt to do this, the request will be blocked and you’ll get some kind of cross-origin error. So how do we get around this?
+  	To avoid this problem, we need to make our API call from our own server. An API call from a server does not violate the CORS policy so this let us make a call.</p>
+
+    <h3>Call Limits</h3>
+    <p>The Steam API limits a user to 10,000 calls per day. For most uses this would be plenty. However there is a catch that can get in the way. It appears
+     that recently a rate of call limit has been added which limits the number of calls you can make in a short amount of time significantly. Be aware of this if
+   you're trying to make multiple calls by nesting calls in loops.</p>
+
+  <h3>Setting up our App</h3>
+	<p>We are going to start with a barebones app. Just enough to make a successful call. For this part you’ll need to have npm and node.js installed on your computer. Create a new folder for the project. From the command line, navigate to that folder and run “npm init”. Follow the steps here. Once that is done we need to install one package. To do this, run “npm install request –save”.
+	Then create a javascript file in the folder called “index.js”.</p>
+<p>In index.js put the following code:
+<script async src="//jsfiddle.net/mattfry1296/vmo7cvgb/embed/js/dark/"></script></p>
+<p>The first line just includes the reqest package we installed. The rest is a simple request that will log the body of the response to the console. The function is
+  the callback function which will use the response to do stuff. The URL needs to
+  be replaced with the URL for our API call. We'll get to that next.</p>
+
+  <div class="text-center"><br>
+   <a href="/making-calls"><button type="button" class="btn btn-default">Next : Making a Call</button></a>
+  </div>
+</div>
